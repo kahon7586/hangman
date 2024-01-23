@@ -1,0 +1,92 @@
+.drawing-container {
+  position: relative;
+}
+
+.floor {
+  height: 10px;
+  width: 150px;
+  background-color: black;
+}
+
+.rod {
+  height: 350px;
+  width: 10px;
+  margin-left: 70px;
+  background-color: black;
+}
+
+.top {
+  height: 10px;
+  width: 200px;
+  background-color: black;
+  margin-left: 70px;
+  position: relative;
+}
+
+.drop {
+  height: 40px;
+  width: 10px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.head {
+  height: 40px;
+  width: 40px;
+  border: 10px solid black;
+  position: absolute;
+  top: 100%;
+  left: -25px;
+  border-radius: 100%;
+}
+
+.body {
+  position: absolute;
+  height: 120px;
+  width: 10px;
+  background-color: black;
+  top: 100%;
+  left: 15px;
+}
+
+.left-hand {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  top: 0;
+  right: 50%;
+  width: 100px;
+  transform: translate(25px, 43px) rotate(-60deg);
+}
+
+.right-hand {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  transform: translate(-25px, 43px) rotate(60deg);
+}
+
+.left-leg {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  bottom: 0;
+  right: 50%;
+  width: 100px;
+  transform: translate(25px, 43px) rotate(-60deg);
+}
+
+.right-leg {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  bottom: 0;
+  left: 50%;
+  width: 100px;
+  transform: translate(-25px, 43px) rotate(60deg);
+}
