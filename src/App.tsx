@@ -3,7 +3,7 @@ import './App.css'
 import wordList from './Data/wordList.json'
 import HangmanDrawing from './Components/HangmanDrawing'
 import HangmanWord from './Components/HangmanWord'
-import HangmanKeyboard from './Components/HangmanWord'
+import HangmanKeyboard from './Components/HangmanKeyboard'
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
     <div className='interface'>
       <div className='result'>Lose Win</div>
       <HangmanDrawing/>
-      <HangmanWord/>
+      <HangmanWord word={wordToGuess}/>
       <HangmanKeyboard/>
     </div>
   )
