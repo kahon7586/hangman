@@ -1,16 +1,29 @@
+import { useEffect } from 'react'
+import { useWord } from '../Context/useWord'
 import './HangmanWord.css'
 
-interface HangmanWordProps {
-  word: string
-}
 
-const HangmanWord = ( { word }: HangmanWordProps ) => {
+
+const HangmanWord = (  ) => {
+
+  const { wordToGuess, guessedLetter} = useWord()
+
+  useEffect( () => {
+
+    const [finalLetter] = guessedLetter.slice(-1)
+    const isLetterGuessed: boolean = wordToGuess.includes(finalLetter)
+
+    if(isLetterGuessed){
+      const targetList = document.querySelectorAll(`.letter-${finalLetter}`)
+      targetList.forEach(target => target.classList.remove("hide"))
+    }
+
+  }, [guessedLetter] )
 
   return (
     <div className='word-container'>
-      {word.toUpperCase().split("")
-      .map( (letter, index) => {
-        return <div key={`${letter}-${index}`} className={`letter letter-${letter}`}>{letter}</div>
+      {wordToGuess.map( (letter, index) => {
+        return <div key={`${letter}-${index}`} className={`letter-container letter-${letter} hide`}>{letter}</div>
       } )}
     </div>
   )

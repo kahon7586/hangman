@@ -6,7 +6,11 @@
   gap: 20px;
 }
 
-.letter {
+.letter-container {
   padding-bottom: 0.5rem;
   border-bottom: 5px solid black;
+}
+
+.hide {
+  color: white;
 }

@@ -1,0 +1,32 @@
+.keyboard-container {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  font-family: monospace;
+}
+
+.alphabet-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black;
+  font-weight: 600;
+  width: 60px;
+  height: 60px;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.clicked {
+  cursor: default;
+}
+
+.clicked.correct {
+  border-color: rgb(126, 196, 126);
+  color: rgb(126, 196, 126);
+}
+
+.clicked.wrong {
+  border-color: rgb(254, 131, 131);
+  color: rgb(254, 131, 131);
+}
