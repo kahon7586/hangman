@@ -4,6 +4,7 @@
   font-weight: 700;
   font-family: monospace;
   gap: 20px;
+  cursor: default;
 }
 
 .letter-container {
