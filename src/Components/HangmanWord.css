@@ -1,0 +1,12 @@
+.word-container{
+  display: flex;
+  font-size: 5rem;
+  font-weight: 700;
+  font-family: monospace;
+  gap: 20px;
+}
+
+.letter {
+  padding-bottom: 0.5rem;
+  border-bottom: 5px solid black;
+}
