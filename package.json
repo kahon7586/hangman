@@ -1,6 +1,5 @@
 {
   "name": "hangman",
-  "homepage": "https://kahon7586.github.io/hangman/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
