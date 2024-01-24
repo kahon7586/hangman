@@ -13,9 +13,13 @@
 }
 
 .unguessed {
-  color: white;
+  color: var(--bg-color);
 }
 
 .failed {
   color: rgb(254, 131, 131);
+}
+
+.succeed {
+  color: rgb(126, 196, 126);
 }
