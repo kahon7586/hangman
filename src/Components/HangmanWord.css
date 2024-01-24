@@ -12,6 +12,10 @@
   border-bottom: 5px solid black;
 }
 
-.hide {
+.unguessed {
   color: white;
+}
+
+.failed {
+  color: rgb(254, 131, 131);
 }
