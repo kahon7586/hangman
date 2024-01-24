@@ -11,7 +11,7 @@ function App() {
   return (
     <WordContextProvider>
       <div className='interface'>
-        Word Guess
+        <div className="title"> Word Guess </div> 
         <HangmanDrawing/>
         <HangmanWord />
         <HangmanKeyboard />
