@@ -56,8 +56,8 @@ const HangmanKeyboard = (  ) => {
     function clickKeyByKeyboard(event: KeyboardEvent): void {
       const pressedKey = event.key.toUpperCase()
       if( alphabetList.includes( pressedKey ) ){
-        const clickedTarget = document.querySelector(`#alphabet-${pressedKey}`) as HTMLDivElement 
-        clickedTarget.click()
+        const clickedTarget = document.querySelector(`#alphabet-${pressedKey}`) as HTMLDivElement | null
+        clickedTarget?.click()
       }
     }
     document.addEventListener('keydown', clickKeyByKeyboard)
