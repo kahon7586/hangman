@@ -38,6 +38,11 @@ const HangmanWord = (  ) => {
       targetList.forEach( target => target.classList.add("failed") )
     }
 
+    if( gameStatus === "win" ){
+      const targetList = document.querySelectorAll(`.letter-container`)
+      targetList.forEach( target => target.classList.add("succeed") )
+    }
+
   }, [gameStatus])
 
   return (
