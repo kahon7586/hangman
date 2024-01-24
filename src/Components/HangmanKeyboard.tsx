@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useWord } from '../Context/useWord';
 import './HangmanKeyboard.css'
 
@@ -11,6 +11,8 @@ function generateAlphabetList(): string[] {
   }
   return alphabetList;
 }
+
+const alphabetList = generateAlphabetList()
 
 interface AlphabetKeyProps {
   alphabet: string
@@ -47,14 +49,32 @@ const AlphabetKey = ( { alphabet }: AlphabetKeyProps ) => {
 
 const HangmanKeyboard = (  ) => {
   
-  const alphabetList = generateAlphabetList()
   const { gameStatus } = useWord()
+
+  useEffect(() => {
+
+    function clickKeyByKeyboard(event: KeyboardEvent): void {
+      const pressedKey = event.key.toUpperCase()
+      if( alphabetList.includes( pressedKey ) ){
+        const clickedTarget = document.querySelector(`#alphabet-${pressedKey}`) as HTMLDivElement 
+        clickedTarget.click()
+      }
+    }
+    document.addEventListener('keydown', clickKeyByKeyboard)
+
+    // return document.removeEventListener('keydown', clickKeyByKeyboard)
+  }, [])
+
+
+  function handleRefresh() {
+    location.reload()
+  }
 
   if( gameStatus !== "playing" ) {
     return (
     <div>
       <div className='result'>You {gameStatus}!</div>
-      <div className='refresh'>Refresh to play again!</div>
+      <div className='refresh' onClick={handleRefresh}>{"> Refresh to play again! <"}</div>
     </div>
     )
   }
