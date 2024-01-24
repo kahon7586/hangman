@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.hide {
+  display: none;
+}
+
 .floor {
   height: 10px;
   width: 150px;
@@ -51,7 +55,7 @@
   left: 15px;
 }
 
-.left-hand {
+.left-arm {
   position: absolute;
   background-color: black;
   height: 10px;
@@ -61,7 +65,7 @@
   transform: translate(25px, 43px) rotate(-60deg);
 }
 
-.right-hand {
+.right-arm {
   position: absolute;
   background-color: black;
   height: 10px;

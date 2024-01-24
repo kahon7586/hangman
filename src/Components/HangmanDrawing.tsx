@@ -1,17 +1,26 @@
+import { useEffect } from 'react'
+import { useWord } from '../Context/useWord'
 import './HangmanDrawing.css'
 
 
 const HangmanDrawing = () => {
+
+  const HUMAN_PARTS = ["head", "body", "left-arm", "right-arm", "left-leg", "right-leg"]
+
+  const { guessWrongTime } = useWord()
+
+
+
   return (
     <div className='drawing-container'>
       <div className="top">
         <div className="drop">
-          <div className="head">
-            <div className="body">
-              <div className="left-hand"></div>
-              <div className="right-hand"></div>
-              <div className="left-leg"></div>
-              <div className="right-leg"></div>
+          <div className="head hide">
+            <div className="body hide">
+              <div className="left-arm hide"></div>
+              <div className="right-arm hide"></div>
+              <div className="left-leg hide"></div>
+              <div className="right-leg hide"></div>
             </div>
           </div>
         </div>
@@ -23,3 +32,5 @@ const HangmanDrawing = () => {
 }
 
 export default HangmanDrawing
+
+
