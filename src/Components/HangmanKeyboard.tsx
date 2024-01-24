@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useWord } from '../Context/useWord';
 import './HangmanKeyboard.css'
 
@@ -12,40 +12,57 @@ function generateAlphabetList(): string[] {
   return alphabetList;
 }
 
+interface AlphabetKeyProps {
+  alphabet: string
+}
 
-const HangmanKeyboard = (  ) => {
-
+const AlphabetKey = ( { alphabet }: AlphabetKeyProps ) => {
+  
   const { wordToGuess, guessedLetter, setGuessedLetter } = useWord()
   
-  const alphabetList = generateAlphabetList()
+  type KeyStatus = "clicked" | "unclicked"
+  const [keyStatus, setKeyStatus] = useState<KeyStatus>("unclicked")
 
-  useEffect( () => {
+  function handleClickKey (): void {
 
-    alphabetList.forEach((alphabet) => {
-      const target = document.querySelector(`#alphabet-${alphabet}`) as Element
+    if( keyStatus === "clicked" ) return
 
-      function onKeyClick ( event: Event ) {
-        if(wordToGuess.find(letter => letter === alphabet)){
-          target.classList.add("clicked", "correct")
-        }
-        else{
-          target.classList.add("clicked", "wrong")
-        }
-        setGuessedLetter( (prev) => [...prev, alphabet] )
-      }
+    setGuessedLetter([...guessedLetter, alphabet])
+    setKeyStatus("clicked")
 
-      target.addEventListener('click', onKeyClick, { once: true })
-    })
-
+    const target = document.querySelector(`#alphabet-${alphabet}`) as Element
     
-  },[])
+    if(wordToGuess.find(letter => letter === alphabet)){
+      target.classList.add("clicked", "correct")
+    }
+    else{
+      target.classList.add("clicked", "wrong")
+    }
+  }
+
+  return  <div className='alphabet-container' onClick={handleClickKey} 
+          id={`alphabet-${alphabet}`} key={`alphabet-${alphabet}`}> {alphabet} </div>
+}
 
 
+const HangmanKeyboard = (  ) => {
+  
+  const alphabetList = generateAlphabetList()
+  const { gameStatus } = useWord()
+
+  if( gameStatus !== "playing" ) {
+    return (
+    <div>
+      <div className='result'>You {gameStatus}!</div>
+      <div className='refresh'>Refresh to play again!</div>
+    </div>
+    )
+  }
 
   return (
     <div className='keyboard-container'>
       {alphabetList.map( (alphabet) => {
-        return <div className='alphabet-container' id={`alphabet-${alphabet}`} key={`alphabet-${alphabet}`}>{alphabet}</div>
+        return <AlphabetKey alphabet={alphabet} key={`key-${alphabet}`}/>
       } )}
     </div>
   )
