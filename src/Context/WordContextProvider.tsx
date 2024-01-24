@@ -24,6 +24,12 @@ const WordContextProvider = ( {children}: WordContextProviderProps ) => {
 
   useUpdateEffect(() => {
     console.log(guessedLetter)
+
+    if( wordToGuess.every( letter => guessedLetter.includes(letter) ) ){
+      setGameStatus("win")
+      return
+    }
+
   },[guessedLetter])
 
   useUpdateEffect(() => {
